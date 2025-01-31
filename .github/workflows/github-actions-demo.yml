@@ -27,11 +27,13 @@ jobs:
         run: docker build -t hardikagrawal2320/test .
       - name: Push Dockerfile
         run: docker push hardikagrawal2320/test 
-      - name: Run Docker Image
-        uses: open-fringecore/docker-ssh-push@v0.1.2-beta
+      - name: Run Docker CMD
+        uses: appleboy/ssh-action@master
         with:
-            images: |
-                hardikagrawal2320/test
-            ssh-host: ${{ secrets.SSH_HOST }}
-            ssh-user: ${{ secrets.SSH_USER }}
-            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+            host: ${{ secrets.SSH_HOST }}
+            username: ${{ secrets.SSH_USER }}
+            password: ${{ secrets.SSH_PASSWORD }}
+            port: 8000
+            script: |
+                docker pull hardikagrawal2320/test
+                
