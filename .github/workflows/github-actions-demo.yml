@@ -25,4 +25,4 @@ jobs:
       - name: Create Dockerfile
         run: docker build -t hardikagrawal2320/test .
       - name: Push Dockerfile
-        run: docker push hardikagrawal2320/test
+        run: docker push hardikagrawal2320/test 
