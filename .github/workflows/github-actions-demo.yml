@@ -27,3 +27,11 @@ jobs:
         run: docker build -t hardikagrawal2320/test .
       - name: Push Dockerfile
         run: docker push hardikagrawal2320/test 
+      - name: Run Docker Image
+        uses: open-fringecore/docker-ssh-push@v0.1.2-beta
+        with:
+            images: |
+                hardikagrawal2320/test
+            ssh-host: ${{ secrets.SSH_HOST }}
+            ssh-user: ${{ secrets.SSH_USER }}
+            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
