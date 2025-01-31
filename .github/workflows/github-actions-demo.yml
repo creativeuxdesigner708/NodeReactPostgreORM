@@ -23,7 +23,7 @@ jobs:
           username: "hardikagrawal2320"
           password: "dckr_pat_PeAzoW-RkPN0jYpQH7z9HOEc4wY"
       - name: Create And Push Dockerfile
-        run: docker build -t test .
+        run: docker build -t test . 
 
 
 
