@@ -27,6 +27,10 @@ jobs:
         run: docker build -t hardikagrawal2320/test .
       - name: Push Dockerfile
         run: docker push hardikagrawal2320/test 
+      - name: test
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+          docker pull hardikagrawal2320/test
       - name: Run Docker CMD
         uses: appleboy/ssh-action@master
         with:
