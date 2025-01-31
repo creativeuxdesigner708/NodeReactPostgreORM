@@ -22,9 +22,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      - name: Create And Push Dockerfile
+      - name: Create Dockerfile
         run: docker build -t test .
-
-
-
-        
+      - name: Create Dockerfile
+        run: docker push hardikagrawal2320/test
